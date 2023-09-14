@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<stdlib.h>
+void main()
+{
+    int *ab,i,j,n;
+    
+    scanf("%d Enter the Number of Array",&n);
+    
+    ab=(int *)malloc(n*sizeof(int));
+    
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",ab+i);
+    }
+    
+    for(j=n-1;j>=0;j--)
+    {
+        printf("%d",*(ab+j));
+    }
+}
