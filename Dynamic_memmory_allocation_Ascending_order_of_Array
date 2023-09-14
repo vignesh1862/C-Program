@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<stdlib.h>
+void main()
+{
+    int *ab,i,k,j,n,max,temp;
+    
+    scanf("%d Enter the Number of Array ",&n);
+    
+    ab=(int *)malloc(n*sizeof(int));
+    
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",ab+i);
+    }
+    
+    for(i=0;i<n;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(*(ab+i) > *(ab+j))
+            {
+                temp = *(ab+i);
+                *(ab+i) = *(ab+j);
+                *(ab+j) = temp;
+            }
+        }
+    }
+    
+    for(k=0;k<n;k++)
+    {
+        printf("%d",*(ab+k));
+    }
+}
