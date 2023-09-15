@@ -1,0 +1,87 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+struct node *head=NULL;
+
+void push(int val)
+{
+    struct node *Newstack;
+    Newstack=(struct node *)malloc(sizeof(struct node));
+    
+    if(head==NULL)
+    {
+        Newstack->data=val;
+        Newstack->next=NULL;
+        head=Newstack;
+    }
+    
+    else
+    {
+        Newstack->data=val;
+        Newstack->next=head;
+        head=Newstack;
+    }
+    
+    printf("Pushed %d : \n",val);
+}
+
+void pop()
+{
+    
+    printf("Popped %d :\n",head->data);
+    head=head->next;
+}
+    
+void display()
+{
+    struct node*temp=head;
+    
+    while(temp!=NULL)
+    {
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+    
+    if(temp==NULL)
+    {
+        printf("\n------------------------------");
+    }
+}
+
+
+
+void main()
+{
+    int choice,val;
+    
+    while(1)
+    {
+        printf("----------Enter your choice------------\n");
+        scanf("%d",&choice);
+        
+        switch(choice)
+        {
+            case 1: printf("Enter value  : \n");
+                    scanf("%d",&val);
+                    push(val);
+                    break;
+                    
+            case 2:pop();
+                    break;
+                    
+            case 3:printf("Elements are  : \n");
+                    display();
+                    break;
+                    
+                    
+            default : printf("Enter valid choice  \n");
+        }
+    }
+}
+
